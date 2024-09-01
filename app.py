@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 
 # Chargement du modèle pré-entraîné
-model_path = "modeleState.pt"
+model_path = "model/modeleState.pt"
 num_classes = 13
 
 model = models.resnet50()
@@ -73,11 +73,10 @@ def process_image():
         probresultat2 = round(top_prob[1].item(), 2)
         probresultat3 = round(top_prob[2].item(), 2)
 
-        predicted_class = classes[resultat1]
 
 
         # Retourner le résultat
-        return jsonify({'class': predicted_class})
+        return jsonify({'class': resultat1})
     
     except Exception as e:
         return jsonify({'error': str(e)}), 500

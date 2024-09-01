@@ -1,3 +1,5 @@
 flask
 torch
 Pillow
+numpy
+torchvision
